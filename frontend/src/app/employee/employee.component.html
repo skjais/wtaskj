@@ -1,0 +1,160 @@
+<div class="card-content white-text">
+    <br/>
+    <br/>
+    <h1 style="text-align:center;">Employee managing </h1>
+    <br/>
+    <br/>
+
+</div>
+<div class="container-fluid bg-white">
+
+    <div class="row">
+        <div class="col-5">
+            <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+
+                <div class="row  ">
+                    <div class="input-field col-12 ">
+                        <label class="text-dark">Employee ID :</label><br/>
+                        <input type="text" name="id" #id="ngModel" [(ngModel)]="employeeService.selectedEmployee.id" placeholder="Enter Employee ID" required>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col-12 ">
+                        <label class="text-dark">Employee Name :</label><br/>
+                        <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Enter Employee Name" required>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col-12  ">
+                        <label class="text-dark">Company</label><br/>
+                        <input type="text" name="remarks" #remarks="ngModel" [(ngModel)]="employeeService.selectedEmployee.remarks" placeholder="Enter Remarks For This Employee" required>
+
+                    </div>
+                </div>
+                <br/>
+                <br/><br/><br/>
+
+                <div class="row container">
+
+                    <!-- <button class="btn btn-primary " type="submit" [disabled]="!employeeForm.valid">Submit</button>
+                        <button class="btn btn-primary " type="button" (click)="resetForm(employeeForm)">Clear</button> -->
+
+                    <button type="submit" class="btn btn-primary btn-sm col-4 " [disabled]="!employeeForm.valid">Add Employee</button>
+
+                    <div class="col-2"></div>
+
+                    <button type="button" class="btn btn-secondary btn-sm col-4" (click)="resetForm(employeeForm)">clear form</button>
+
+                </div>
+            </form>
+        </div>
+        <div class="col-2 bg-dark">
+
+        </div>
+        <div class="col-5">
+
+            <div class=" doc_table text-dark ">
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tr *ngFor="let emp of employeeService.employees" class="tablerow">
+                        <td class="pointer" (click)="onEdit(emp)">{{emp.id}}</td>
+                        <td class="pointer" (click)="onEdit(emp)">{{emp.name}}</td>
+
+                        <td class="pointer delete" style="width:5%;" (click)="onDelete(emp._id, employeeForm)">
+                            <a class="action-btn">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- 
+<div class="row  ">
+    <div class="col s12">
+        <div class="padding">
+            <div class="card-content text-white  ">
+                <div class="row">
+                    <div class="col s5   ">
+                        <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+                            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+
+                            <div class="row  ">
+                                <div class="input-field col s12">
+                                    <input type="text" name="id" #id="ngModel" [(ngModel)]="employeeService.selectedEmployee.id" placeholder="Enter Employee ID" required>
+                                    <label>Employee ID :</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Enter Employee Name" required>
+                                    <label>Employee Name :</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label>company</label>
+                                    <br>
+                                    <textarea style="height:250px; color:aliceblue" name="remarks" #remarks="ngModel" [(ngModel)]="employeeService.selectedEmployee.remarks" placeholder="Enter Remarks For This Employee" required></textarea>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <button class="btn btn-custom right" type="submit" [disabled]="!employeeForm.valid">Submit</button>
+                                    <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Clear</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col s3"></div>
+
+                    <div class="col s4 doc_table text-white ">
+                        <table class="responsive-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tr *ngFor="let emp of employeeService.employees" class="tablerow">
+                                <td class="pointer" (click)="onEdit(emp)">{{emp.id}}</td>
+                                <td class="pointer" (click)="onEdit(emp)">{{emp.name}}</td>
+
+                                <td class="pointer delete" style="width:5%;" (click)="onDelete(emp._id, employeeForm)">
+                                    <a class="action-btn">
+                                        <i class="material-icons">clear</i>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
