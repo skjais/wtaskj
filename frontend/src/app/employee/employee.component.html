@@ -9,7 +9,7 @@
 <div class="container-fluid bg-white">
 
     <div class="row">
-        <div class="col-5">
+        <div class="col-lg-5 col-sm-12">
             <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
 
@@ -53,13 +53,16 @@
                 </div>
             </form>
         </div>
-        <div class="col-2 bg-dark">
+
+        <div class="col-lg-2 col-sm-12  bg-dark">
 
         </div>
-        <div class="col-5">
+
+
+        <div class="col-lg-5 col-sm-12">
 
             <div class=" doc_table text-dark ">
-                <table class="responsive-table">
+                <table>
                     <thead>
                         <tr>
                             <th>ID</th>
